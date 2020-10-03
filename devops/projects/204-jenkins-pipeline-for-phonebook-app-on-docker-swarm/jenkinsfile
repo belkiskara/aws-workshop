@@ -1,12 +1,21 @@
 pipeline{
     agent { label "master" }
     environment {
-        ECR_REGISTRY = ""
+        ECR_REGISTRY = "491788187146.dkr.ecr.us-east-1.amazonaws.com"
+        APP_REPO_NAME= "belkis-repo/phonebook-app"
+        AWS_REGION = "us-east-1"
     }
     stages {
         stage('Create ECR Repo') {
             steps {
             echo 'Creating ECR Repository'
+             sh """
+                aws ecr create-repository \ 
+                  --repository-name ${APP_REPO_NAME}
+                  --image-scanning-configuration scanOnPush=false \
+                  --image-mutability Mutabla \
+                  --region ${AWS_REGION}
+                """
             }
         }
         stage('Build App Docker Images'){
