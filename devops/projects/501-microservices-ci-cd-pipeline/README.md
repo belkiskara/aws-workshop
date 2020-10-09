@@ -79,7 +79,7 @@ This project aims to create full CI/CD Pipeline for microservice based applicati
 
 ```
 
-## MSP 4 - Prepare a Script for Packaging the Application
+## MSP 4- Prepare a Script for Packaging the Application
 
 - Create `feature/msp-4` branch from `dev`.
 
