@@ -1,0 +1,49 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+    This is cloudformation templates for roman numarals applications.
+    This flask web application runs on EC2 allows connection from antwhere
+    on port 80
+Resources:
+  MySecurityGroup: #An inline comment
+    Type: AWS::EC2::SecurityGroup
+    Properties: 
+        GroupDescription: Enables HTTP for Flask Web MyWebServer
+        GroupName: Flask-WS-SG
+        SecurityGroupIngress:
+        -   IpProtocol: tcp
+            FromPort: 80
+            ToPort: 80
+            CidrIp: 0.0.0.0/0
+        -   IpProtocol: tcp
+            FromPort: 22
+            ToPort: 22
+            CidrIp: 0.0.0.0/0
+  MyWebServer:
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: ami-08f3d892de259504d
+      InstanceType: t2.micro
+      SecurityGroupIds:
+          - !Ref MySecurityGroup
+      Tags: 
+          -
+              Key: Name
+              Value: !Sub Web Server of ${AWS::StackName} Stack
+      UserData:
+          Fn::Base64:
+             !Sub |
+              #! /bin/bash
+              yum update -y
+              yum install python3 -y
+              pip3 install flask
+              wget -P templates index.html
+              wget -P teplates result.html
+              wget app.py
+              python3 app.py
+
+Outputs:
+  MysiteURL:
+    Description: Roman Numarals Converter Application Website MysiteURL
+    Value: !Sub 
+        - http://${PublicAdress}
+        - PublicAddress: !GetAtt MyWebServer.PublicDnsName
