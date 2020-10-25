@@ -2,8 +2,8 @@ import mysql.connector
 from mysql.connector import errorcode
 
 config={
-    'user': 'admin',
-    'password': 'Callahan_1',
+    'user': 'belkis',
+    'password': 'blks5230',
     'host':'phonebook-db.cbanmzptkrzf.us-east-1.rds.amazonaws.com',
     'database':'phonebook',
     'raise_on_warnings':True
