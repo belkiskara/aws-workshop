@@ -8,7 +8,7 @@ curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compo
 -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 TOKEN="xxxxxxxxx"
-FOLDER="https://$TOKEN@raw.githubusercontent.com/clarusway/clarusway-aws-devops-1-20/master/devops/projects/202-dockerization-bookstore-api-on-python-flask-mysql/"
+FOLDER="https://$TOKENhttps://raw.githubusercontent.com/belkiskara/aws-workshop/master/devops/projects/202-dockerization-bookstore-api-on-python-flask-mysql/"
 curl -s --create-dirs -o "/home/ec2-user/bookstore-api/bookstore-api.py" -L "$FOLDER"bookstore-api.py
 curl -s --create-dirs -o "/home/ec2-user/bookstore-api/requirements.txt" -L "$FOLDER"requirements.txt
 curl -s --create-dirs -o "/home/ec2-user/bookstore-api/Dockerfile" -L "$FOLDER"Dockerfile
