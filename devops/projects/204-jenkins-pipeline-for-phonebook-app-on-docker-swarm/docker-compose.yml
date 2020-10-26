@@ -6,8 +6,8 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: P123456p
             MYSQL_DATABASE: phonebook_db
-            MYSQL_USER: belkiskara
-            MYSQL_PASSWORD: Blkskr
+            MYSQL_USER: belkis
+            MYSQL_PASSWORD: blks5230
         volumes:
             - db-data:/var/lib/mysql
         configs:
