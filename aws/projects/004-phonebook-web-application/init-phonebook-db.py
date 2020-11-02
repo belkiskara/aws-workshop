@@ -22,9 +22,10 @@ def init_phonebook_db(cursor):
     data = """
     INSERT INTO phonebook.phonebook (name, number)
     VALUES
-        ("Callahan", "1234567890"),
-        ("Sergio Taco", "67854"),
-        ("Vincenzo Altobelli", "876543554");
+        ("Belkis", "1234567890"),
+        ("Meva", "67854"),
+        ("Vincenzo ", "876543554"),
+        ("Callahan ", "876543553");
     """
 
     cursor.execute(drop_table)
